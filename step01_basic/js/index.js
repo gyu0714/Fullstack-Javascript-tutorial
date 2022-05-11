@@ -11,9 +11,9 @@
 
 // 3. script
 // console.log('Hello, JS(외부)');
-let var1 = "출력";
+// let var1 = "출력";
 // 4-1.console.log
-console.log(var1);
+// console.log(var1);
 
 // 4-2. prompt
 // let var2 = prompt();
@@ -26,4 +26,6 @@ console.log(var1);
 // document.write(var1);
 
 // 4-5 HTML요소를 통한 출력
-innerHTML;
+const el = document.getElementById("innerHTML1");
+console.log(el);
+el.innerHTML = "hi";
