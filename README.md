@@ -2,6 +2,8 @@
 
 WEB-FULLSTACK EDUCATION for javascript
 
+---
+
 ## step01_basic
 
 - intro
@@ -13,6 +15,8 @@ WEB-FULLSTACK EDUCATION for javascript
   - document.write()
   - HTML 요소를 통한 출력
     - innerHTML
+
+---
 
 ## step02_data
 
@@ -38,6 +42,8 @@ WEB-FULLSTACK EDUCATION for javascript
     - &&
     - ||
 
+---
+
 ## step03_controll_folw
 
 - if
@@ -46,6 +52,8 @@ WEB-FULLSTACK EDUCATION for javascript
 - loop
   - while
   - for
+
+---
 
 ## step04_function
 
@@ -58,6 +66,8 @@ WEB-FULLSTACK EDUCATION for javascript
   - var
 - arrow function
 
+---
+
 ## step05_object
 
 - object
@@ -69,4 +79,31 @@ WEB-FULLSTACK EDUCATION for javascript
 - 화살표 함수로 만든 this 객체 적용 불가능
 - prototype
 - constructor
-- array
+- `array`
+  - length : 배열 길이 확인
+  - push() : 배열에 요소 추가
+  - unshift() : 배열 맨 앞 요소 추가
+  - shift() : 배열 맨 앞 요소 삭제,반환
+  - pop() : 배열의 맨뒤 요소 삭제
+  - splice() : 시작 인덱스의 요소를 포함하여 끝 인덱스까지 삭제
+  - slice() : 시작인덱스 부터 끝 인덱스까지 복사 후 반환
+  - indexOf() : 해당 요소의 인덱스 값 반환
+  - find() : 테스트 함수의 조건에 맞는 첫 번째 요소 값을 반환
+  - findIndex() : 테스트 함수의 조건에 맞는 첫 번째 인덱스(위치) 값을
+  - Array.from() : 유사배열을 진짜 배열로 만들어줌
+  - join() : 배열을 합쳐 줌
+  - for ~ of : 순차적으로 내부 요소에 접근 할수 있는 이터러블(배열을 일반화)한 객체만 사용 가능
+  - foreach
+  - Map()
+  - filter()
+  - reduce()
+  - 유사 배열 : 이터럴하지 않음
+- string
+  - length
+  - charAt(idx)
+  - substring()
+  - replace()
+  - split()
+  - concat()
+- number
+  - Number()
