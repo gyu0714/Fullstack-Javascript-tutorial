@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+    <style>
+      .hide {
+        display: none;
+      }
+      .onRed {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Menu</h1>
+      <div id="describe">조회</div>
+      <hr />
+
+      <h3>서비스</h3>
+      <button id="check" class="tab" name="checkName">조회</button>
+      <button id="transfer" class="tab">이체</button>
+      <ul class="checkService hide">
+        <li>계좌조회</li>
+        <li>어음수표조회</li>
+        <li>오픈뱅킹업무</li>
+      </ul>
+
+      <p id="content"></p>
+      <p id="content2"></p>
+
+      <h3>기입</h3>
+      이메일 : <input type="email" name="email" id="email" />
+      <div id="invalidMsg"></div>
+      <div id="emailOutput"></div>
+    </div>
+    <script src="../js/lab02_event.js"></script>
+  </body>
+</html>
