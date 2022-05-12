@@ -107,3 +107,16 @@ WEB-FULLSTACK EDUCATION for javascript
   - concat()
 - number
   - Number()
+  - parseInt()
+  - parseFloat()
+- DATE
+
+## step06_DOM
+
+- dom
+- getelementXXX
+- querySelector
+- bom
+- event
+  - eventhandler
+  - focus
