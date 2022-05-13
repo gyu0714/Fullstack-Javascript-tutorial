@@ -120,3 +120,31 @@ WEB-FULLSTACK EDUCATION for javascript
 - event
   - eventhandler
   - focus
+- event-apply
+  - bubbling
+  - capturing
+  - stopPropagation()
+  - preventDefault()
+  - target()
+
+## step07_WEB_APPLY
+
+- 삼항연산자
+- Turthy / Falsy
+- 논리연산자
+- parameter / argument
+- 비구조화 문법
+- 파라미터와 인자
+- rest
+- spead
+- `상속`
+  - 프로토타입
+- `JSON`
+  - stringfy
+- `async / await 비동기`
+  - callBack()
+  - `Promise()`
+    - pending
+    - fullfilled
+    - reject
+    - then
