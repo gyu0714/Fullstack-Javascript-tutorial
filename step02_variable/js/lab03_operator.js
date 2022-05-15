@@ -35,3 +35,12 @@ console.log(y === z); // false 절대 비교 값과 타입
 console.log('----- 논리 연산자 -----');
 // && : 모든 결과가 참일 때
 console.log(10 > 9 && 'a' === 'a'); // true
+
+// || : (or연산자) 모든 결과가 거짓일 때 => false
+//      둘 중 하나라도 참이라면 true
+console.log(10 < 9 || 'a' === 'b'); //false
+
+// !(부정연산자) : 최종 결과값의 반대 값
+// boolean에만 사용가능
+console.log(!(10 > 9 && 'a' === 'a')); // false
+console.log(!false); // true
