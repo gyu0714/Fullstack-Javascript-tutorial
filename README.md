@@ -142,7 +142,8 @@ WEB-FULLSTACK EDUCATION for javascript
 - `상속`
   - 프로토타입
 - `JSON`
-  - stringfy
+  - stringfy()
+  - parse()
 - `async / await 비동기`
   - callBack()
   - `Promise()`
@@ -154,3 +155,10 @@ WEB-FULLSTACK EDUCATION for javascript
     - error 처리
   - promise.all()
   - promise.rase()
+  - chainingMethod : then()을 여러번 사용하는 방식
+  - HTTP 통신 방식에 대한 이해
+    - `method`
+      - GET : 입력
+      - POST : 조회
+      - PUT : 수정
+      - DELETE : 삭제
