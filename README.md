@@ -127,6 +127,8 @@ WEB-FULLSTACK EDUCATION for javascript
   - preventDefault()
   - target()
 
+---
+
 ## step07_WEB_APPLY
 
 - 삼항연산자
@@ -147,4 +149,8 @@ WEB-FULLSTACK EDUCATION for javascript
     - pending
     - fullfilled
     - reject
-    - then
+      - try / catch / finally
+    - `then`
+    - error 처리
+  - promise.all()
+  - promise.rase()
