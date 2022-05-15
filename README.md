@@ -156,9 +156,21 @@ WEB-FULLSTACK EDUCATION for javascript
   - promise.all()
   - promise.rase()
   - chainingMethod : then()을 여러번 사용하는 방식
-  - HTTP 통신 방식에 대한 이해
-    - `method`
-      - GET : 입력
-      - POST : 조회
-      - PUT : 수정
-      - DELETE : 삭제
+
+---
+
+`HTTP 구조`
+
+1. Start Line
+   HTTP 메소드, Request(요청) 타겟 (= 목표 주소), HTTP 버전, HTTP 상태코드 ...
+   HTTP 메소드 종류: GET(데이터 요청), POST(데이터 추가), PUT(데이터 수정), DELETE(데이터 삭제) : https://developer.mozilla.org/ko/docs/Web/HTTP/Methods
+   HTTP 상태 코드 : (1xx, 2xx, 3xx, 4xx, 5xx) : https://developer.mozilla.org/ko/docs/Web/HTTP/Status
+
+2. Header (key : value)
+   Date(현재 시간), Content-type(MIME, body부분의 미디어 타입, ex.text/html, application/json, ...),
+   Content-lenght(컨텐츠 길이), Host(서버 호스트 이름과 포트번호)
+   Authorization(인증 토큰), Cookie(쿠키), Accept(미디어 타입 종류)
+
+3. Body
+   실제 데이터(Request - 전송하는 데이터, Response - 반환하는 데이터)
+   전송 데이터 혹은 반환 데이터가 없다면 - Body는 비어 있을 수 있음
