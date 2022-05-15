@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab03_asynchronous.html</title>
+  </head>
+  <body>
+    <script>
+      // 동기 Synchronous : 요청 결과 응답 후 다음 동작이 실행되는 방식
+      //   console.log(1);
+      //   setTimeout(() => {
+      //     console.log(2);
+      //   }, 2000);
+      //   console.log(3);
+
+      //   asyncCall();
+
+      // 비동기 : 요청 결과 응답과 별개로 다음 동작이 실행되는 방식
+      // 왜 필요한가 ? 서버로 부터 데이터 세팅, 문제 발생시 별도로 실행되어야 하는 경우
+
+      // 콜백 함수 Callback Function
+      // : 함수의 매개변수로 전달되는 함수 --> 결과적으로 콜백함수는 전달 받은 함수 안에서 호출
+
+      //   const callBack = (callback) => {
+      //     setTimeout(() => {
+      //       callback();
+      //     }, 1000);
+      //   };
+
+      //   callBack(() => {
+      //     callBack(() => {
+      //       console.log("1초후에 callback함수 실행");
+      //     });
+      //   });
+
+      // hell callback!!!
+      //   callBack(() => {
+      //     callBack(() => {
+      //       console.log("2초후에 callback함수 실행");
+      //     });
+      //   });
+
+      // *Promise*
+
+      // 전역 객체(new 생성 x)
+      //   console.log(Promise);
+      // 문법
+      // new 연산자로 Promise 객체 생성
+      // 객체 생성시 실행자 함수를 인자로 받아 실행
+      // Promise는 진행되는 시점에 따라 상태값을 가짐
+
+      // 실행자 함수 종류 2가지
+      // resolve : 비동기 작업이 성공한 경우 호출
+      // reject : 비동기 작업이 실패한 경우 호출
+
+      // pending 상태
+      // 대기(pending) : Promise 객체가 생성되어 대기 중인 상태
+      //   new Promise((resolve, reject) => {});
+
+      // 이행(fullfilled) : resolve()를 실행시켰을 때의 상태
+      //   new Promise((resolve, reject) => {
+      //     resolve();
+      //   });
+
+      // 거부(reject)
+      //   new Promise((resolve, reject) => {
+      //     reject();
+      //   });
+
+      // then
+      // then() : Promise가 무조건 실행되는 함수
+
+      // 1초후 실행 함수
+      //   let promiseFunction = new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       resolve();
+      //     }, 4000);
+      //   });
+
+      //   promiseFunction.then(() => {
+      //     console.log("오늘 수업 끝!!!!!!");
+      //   });
+
+      //   const goHome = () => {
+      //     return new Promise((resolve) => {
+      //       setTimeout(() => {
+      //         resolve("그래 가자!!!!!!");
+      //       }, 2000);
+      //     });
+      //   };
+
+      //   const wantGoHome = async () => {
+      //     console.log("집에 가고 싶니???");
+      //     const answer = await goHome();
+      //     console.log(answer);
+      //   };
+
+      //   wantGoHome();
+
+      // 개선된 프로미스 사용 방법 : 함수 내부에 반환 값으로 프로미스를 사용
+
+      // resolve
+      //   const usePromise = () => {
+      //     return new Promise((res, rej) => {
+      //       // ver 1
+      //       // res();
+
+      //       // ver 2
+      //       res("resolve 실행");
+      //     }, 1000);
+      //   };
+
+      // ver 1
+      //   usePromise().then(() => {
+      //     console.log("일요일이다");
+      //   });
+
+      // ver 2
+      //   usePromise().then((msg) => {
+      //     console.log(`프로미스 실행 - ${msg}`);
+      //   });
+
+      // reject
+
+      //   const usePromise = () => {
+      //     return new Promise((res, rej) => {
+      //       // ver 1
+      //       // rej();
+
+      //       // ver 2
+      //       rej(new Error("에러 발생"));
+      //     }, 1000);
+      //   };
+
+      //   usePromise().then(() => {
+      //     console.log("실행코드");
+      //   });
+
+      // try / catch : 에러를 처리하기 위해 사용하는 문법
+      // finally : 기본 실행 코드(무조건 실행 된다.)
+      //   try {
+      // console.log("실행 코드");
+
+      // error
+      // let likeJson = "{'name' : 'js'}";
+      // JSON.parse(likeJson); // error -> catch문 실행
+      // console.log("실행 코드"); // 실행 되지 않음
+      //   } catch (error) {
+      // console.log(`error msg : ${error}`);
+      //   } finally {
+      // console.log("무조건 실행되는 코드");
+      //   }
+
+      // Promise에 에러 처리
+      //   usePromise()
+      //     .then(() => {
+      //       console.log("실행 되어야 하는 코드"); // 실행되지 않음 reject
+      //     })
+      //     .catch((error) => {
+      //       console.log(`error msg : ${error}`);
+      //     })
+      //     .then(() => {
+      //       console.log("실행 코드 2");
+      //     })
+      //     .finally(() => {
+      //       console.log("기본 실행코드");
+      //     });
+
+      // *** 체이닝 메소드 사용시 주의 할 점
+
+      const useChainMethod = () => {
+        return new Promise((res, rej) => {
+          setTimeout(() => {
+            res(3);
+          }, 1000);
+        });
+      };
+
+      //   useChainMethod()
+      //     .then((num) => {
+      //       console.log(num); // 3
+      //     })
+      //     .then((num) => {
+      //       console.log(num); // undefined
+      //     });
+
+      // 왜 undefined가 출력 되는가?
+      // 앞에 사용 된 then에 영향을 받기 때문
+
+      // 수정
+      useChainMethod()
+        .then((num) => {
+          return num * 2; // 6
+        })
+        .then((num) => {
+          return num * 3; // 18
+        })
+        // 마지막을 함수로 끝내는게 아니라 객체, 값으로 끝내놔야 다음 then 사용 가능
+        .then((num) => {
+          num; // 18
+        });
+
+      // Promise.all()
+      const promiseAll = (time) => {
+        return new Promise((res, rej) => {
+          setTimeout(() => {
+            // res();
+            res(time);
+          }, time);
+        });
+      };
+
+      // Promise.all()
+      // 모든 promise가 fullfilled가 되었을 경우에 한번에 실행
+      //   Promise.all([promiseAll(1000), promiseAll(2000), promiseAll(3000)]).then(
+      //     (time) => {
+      //       console.log(time);
+      //       console.log(
+      //         "promiseAll 실행 : 모든 promise가 fullfilled가 되었을 경우에 한번에 실행"
+      //       );
+      //     }
+      //   );
+
+      // Promise.race()
+      // 가장 빠른 promise가 fullfilled 되었을 때 실행
+      Promise.race([promiseAll(1000), promiseAll(2000), promiseAll(3000)]).then(
+        (time) => {
+          console.log(time);
+          console.log(
+            "promiseRace 실행 : 가장 빠른 promise가 fullfilled 되었을 때 실행"
+          );
+        }
+      );
+    </script>
+  </body>
+</html>
