@@ -170,13 +170,13 @@
 
       // *** 체이닝 메소드 사용시 주의 할 점
 
-      const useChainMethod = () => {
-        return new Promise((res, rej) => {
-          setTimeout(() => {
-            res(3);
-          }, 1000);
-        });
-      };
+      // const useChainMethod = () => {
+      //   return new Promise((res, rej) => {
+      //     setTimeout(() => {
+      //       res(3);
+      //     }, 1000);
+      //   });
+      // };
 
       //   useChainMethod()
       //     .then((num) => {
@@ -190,27 +190,27 @@
       // 앞에 사용 된 then에 영향을 받기 때문
 
       // 수정
-      useChainMethod()
-        .then((num) => {
-          return num * 2; // 6
-        })
-        .then((num) => {
-          return num * 3; // 18
-        })
-        // 마지막을 함수로 끝내는게 아니라 객체, 값으로 끝내놔야 다음 then 사용 가능
-        .then((num) => {
-          num; // 18
-        });
+      // useChainMethod()
+      //   .then((num) => {
+      //     return num * 2; // 6
+      //   })
+      //   .then((num) => {
+      //     return num * 3; // 18
+      //   })
+      //   // 마지막을 함수로 끝내는게 아니라 객체, 값으로 끝내놔야 다음 then 사용 가능
+      //   .then((num) => {
+      //     num; // 18
+      //   });
 
       // Promise.all()
-      const promiseAll = (time) => {
-        return new Promise((res, rej) => {
-          setTimeout(() => {
-            // res();
-            res(time);
-          }, time);
-        });
-      };
+      //   const promiseAll = (time) => {
+      //     return new Promise((res, rej) => {
+      //       setTimeout(() => {
+      //         // res();
+      //         res(time);
+      //       }, time);
+      //     });
+      //   };
 
       // Promise.all()
       // 모든 promise가 fullfilled가 되었을 경우에 한번에 실행
@@ -225,14 +225,71 @@
 
       // Promise.race()
       // 가장 빠른 promise가 fullfilled 되었을 때 실행
-      Promise.race([promiseAll(1000), promiseAll(2000), promiseAll(3000)]).then(
-        (time) => {
-          console.log(time);
-          console.log(
-            "promiseRace 실행 : 가장 빠른 promise가 fullfilled 되었을 때 실행"
-          );
-        }
-      );
+      //   Promise.race([promiseAll(1000), promiseAll(2000), promiseAll(3000)]).then(
+      //     (time) => {
+      //       console.log(time);
+      //       console.log(
+      //         "promiseRace 실행 : 가장 빠른 promise가 fullfilled 되었을 때 실행"
+      //       );
+      //     }
+      //   );
+
+      // Async function :
+      // 문법
+      // async function [name]() {}
+
+      //   const fetchData = async () => {
+      // ver1
+      // return new Promise((res, rej) => {
+      //   return res("data");
+      // });
+
+      // ver2
+      // 함수 앞에 async 사용
+      // new Promise()를 생성하지 않아줘도 됌
+      //     return "data";
+      //   };
+
+      //   const data = fetchData();
+      //   data.then((data) => {
+      //     console.log(data);
+      //   });
+
+      // await : 프로미스의 결과를 기다리기 위해 사용
+      //   const loadData = (time) => {
+      //     return new Promise((res, rej) => {
+      //       setTimeout(() => {
+      //         res();
+      //       }, time);
+      //     });
+      //   };
+
+      // 에러발생 : await는 반드시 async 내부에서만 사용
+      // const loading = await loadData(1000);
+      //   loading.then(() => {
+      //     console.log("data load complete");
+      //   });
+
+      // 수정
+      // async와 await 사용 법
+      //   const useAwait = async () => {
+      //     try {
+      //       let loading = await loadData(1000);
+      //       let loading2 = await loadData(2000);
+      //     } catch (error) {
+      //       console.log(`error msg : ${error}`);
+      //     }
+      //   };
+
+      //   useAwait();
+
+      // HTTP 통신 방식에 대한 이해
+      // Header / Body로 구성
+      // HTTP 구조
+      // 1. Line : [Method] Get(조회), Post(등록), Delete(삭제), Put(수정),
+      // 2. Header : Request / Response Date, Content Type, Host
+      // 3. Body : entity Data Value **필수로 지정되어 있지 않다
+      // 명등성 : 여러번 수행해도 결과가 같음을 의미. 즉, 호출로 인하여 데이터가 변형 되지 않는다
     </script>
   </body>
 </html>
