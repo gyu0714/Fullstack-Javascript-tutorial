@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>lab03_asynchronous.html</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
+    <div id="viewResult"></div>
+    <div>
+      <button id="this-button">click</button>
+    </div>
     <script>
       // 동기 Synchronous : 요청 결과 응답 후 다음 동작이 실행되는 방식
       //   console.log(1);
@@ -290,6 +295,136 @@
       // 2. Header : Request / Response Date, Content Type, Host
       // 3. Body : entity Data Value **필수로 지정되어 있지 않다
       // 명등성 : 여러번 수행해도 결과가 같음을 의미. 즉, 호출로 인하여 데이터가 변형 되지 않는다
+
+      // XMLHTTPRequest (XHR)
+      // 서버와 비동기로 상호작용 하기 위해 사용되는 객체
+      // XML이란 ?
+      // 데이터를 구조화 시킨 것
+
+      const usersURL = `https://jsonplaceholder.typicode.com/users`;
+
+      //   const ajaxText = () => {
+      //     let xhr = new XMLHttpRequest();
+      //     xhr.onreadystatechange = function () {
+      //       if (this.readyState === 4 && this.status === 200) {
+      //         // console.log(this.response);
+      //         const responseObj = JSON.parse(this.response);
+      //         // console.log(responseObj); // object
+      //         for (let i = 0; i < responseObj.length; i++) {
+      //           //   console.log(responseObj[i].id);
+      //           let responseData = responseObj[i];
+      //           if (responseObj[i].id === 3) {
+      //             console.log(responseData);
+      //             console.log(innerData);
+      //           }
+      //         }
+      //       }
+      //     };
+
+      //     xhr.open("GET", usersURL, true);
+
+      //     xhr.send();
+      //   };
+      //   ajaxText();
+
+      // axios
+      // https://axios-http.com/kr/docs/intro
+
+      //   axios({
+      //     method: "GET",
+      //     url: usersURL,
+      //   })
+      //     .then((res) => {
+      //       console.log(res.data[2]);
+      //     })
+      //     .catch((error) => {
+      //       console.log(`error : ${error}`);
+      //     });
+
+      //   const axios = require("axios");
+
+      const innerData = document.querySelector("#viewResult");
+
+      //   axios.get(usersURL).then((res) => {
+      //     for (let i = 0; i < res.data.length; i++) {
+      //       //   console.log(res.data[i]);
+      //       //   console.log(user.value);
+      //       let innerText = `
+      //           <h1> id : ${res.data[i].id}</h1>
+      //           <h2> 이름 : ${res.data[i].name}</h2>
+      //           <h3> 닉네임 : ${res.data[i].username}</h3>
+      //           <span> 도시 : ${res.data[i].address.city} </span><br>
+      //           <span> 위도 : ${res.data[i].address.geo.lat} </span><br>
+      //           <span> 경도 : ${res.data[i].address.geo.lng} </span><br>
+      //           <span> 회사이름 : ${res.data[i].company.name} </span><br>
+      //           <span>user id</span>
+      //       `;
+      //       innerData.innerHTML = innerText;
+      //     }
+      // });
+      // .then((num) => {
+      //     if(user.value === )
+      // });
+
+      //   const user = document.querySelector(".selectUser").value;
+      //   console.log(user);
+
+      // select user
+      //   const getData = () => {
+      //     axios.get(`${usersURL}/${user}`).then((res) => {
+      //       const data = res.data;
+      //       console.log(data);
+      //       let v = "";
+      //       // console.log(v);
+      //       data.forEach((e) => {
+      //         console.log(e);
+      //         // v += `id : ${e.id} : ${e.name} <br>`;
+      //       });
+
+      //       let markUp = `
+      //         <div>${v}</div>
+      //     `;
+      //       document.write(markUp);
+      //     });
+      //   };
+
+      //   num = (n) => {
+      //     console.log(n);
+      //     axios
+      //       .get("https://jsonplaceholder.typicode.com/users/id=" + n)
+      //       .then((resData) => {
+      //         console.log(resData);
+      //         let v = "";
+      //         console.log(v);
+      //         resData.data.forEach((element) => {
+      //           v += element.id + "<br>";
+      //           v += element.name + "<br>";
+      //           v += element.username + "<br>";
+      //           console.log(v);
+      //         });
+      //         document.getElementById("n").innerHTML = v;
+      //       })
+      //       .catch((error) => {
+      //         console.log("비정상 응답", error);
+      //       });
+      //   };
+
+      const button = document.querySelector("#this-button");
+      //   console.log(button);
+      //   console.log(button);
+      button.addEventListener("click", (event) => {
+        button.innerHTML = `${event.detail}`;
+        console.log(typeof event.detail);
+        axios
+          .get(usersURL + "/" + event.detail)
+          .then(function (response) {
+            console.log(response.data);
+            return response.data;
+          })
+          .catch(function (error) {
+            console.log(`error msg : ${error}`);
+          });
+      });
     </script>
   </body>
 </html>
