@@ -156,6 +156,13 @@ WEB-FULLSTACK EDUCATION for javascript
   - promise.all()
   - promise.rase()
   - chainingMethod : then()을 여러번 사용하는 방식
+  - axios
+    - GET : 조회
+    - POST : 입력
+    - PUT : 수정
+    - DELETE : 삭제
+    - PATCH : 기본 형태는 보존하고 입력한 정보만 수정
+      Fetch
 
 ---
 
@@ -174,3 +181,7 @@ WEB-FULLSTACK EDUCATION for javascript
 3. Body
    실제 데이터(Request - 전송하는 데이터, Response - 반환하는 데이터)
    전송 데이터 혹은 반환 데이터가 없다면 - Body는 비어 있을 수 있음
+
+---
+
+`POSTMAN` : REST API 잘 작동하는지 확인하는 툴
