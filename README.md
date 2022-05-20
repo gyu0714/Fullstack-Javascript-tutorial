@@ -60,10 +60,16 @@ WEB-FULLSTACK EDUCATION for javascript
 - function_syntax
   - 선언식
   - 표현식
-- scope
+- `scope`
   > 범위
   - let, const
   - var
+  - closure
+    - 렉시컬 스코프 : 코드상에 작성된 문맥에서 스코프가 결정
+      클로저의 조건
+    1. 내부 함수가 익명함수로 외부 함수의 return값이 될 때
+    2. return 내부 함수는 외부 함수 실행 환경에서 호출 될 때
+    3. 내부 함수 스코프의 변수는 외부 함수 스코프에 존재 할 때
 - arrow function
 
 ---
